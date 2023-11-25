@@ -1,5 +1,7 @@
-package pro.sky.java.course2.springCalculator.service;
+package pro.sky.java.course2.spring_calculator.service;
 import org.springframework.stereotype.Service;
+import pro.sky.java.course2.spring_calculator.exceptions.ZeroDividerException;
+
 @Service
 public class CalculatorService {
     public String greeting() {
@@ -14,9 +16,9 @@ public class CalculatorService {
     public Integer multiply(int num1, int num2) {
         return num1 * num2;
     }
-    public double divide(int num1, int num2) throws IllegalArgumentException {
+    public double divide(int num1, int num2) throws ZeroDividerException {
         if (num2 == 0) {
-            throw new IllegalArgumentException("Ошибка! Делить на ноль нельзя.");
+            throw new ZeroDividerException("Ошибка! Делить на ноль нельзя.");
         }
         return num1 / num2;
     }
